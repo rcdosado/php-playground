@@ -2,15 +2,9 @@
 
 function set_count($file_name = 'counter.txt'){
 	if (file_exists($file_name)) {
-		// read the value
-		$handle = fopen($file_name, 'r');
-		$count = (int) fread($handle,20) + 1;
-
-		$handle = fopen($file_name, 'w');
-		fwrite($handle, $count);
-		
-		//close the file
-		fclose($handle);
+		// get and save file with new value
+		$count = (int) file_get_contents($file_name) + 1;
+		file_put_contents($file_name, $count);
 	}else {
 		// create it
 		$handle = fopen($file_name, 'w+');

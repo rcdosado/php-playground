@@ -5,8 +5,8 @@
 	<title>index page</title>
 </head>
 <body>
-
-<h1><?php echo $count; ?> </h1>		
+<h1>Welcome to my webpage</h1>
+<p> Visitor count: <?php echo $count; ?> visitor to this site.</p>
 	
 </body>
 </html>
