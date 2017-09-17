@@ -17,6 +17,7 @@
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
+                      <th>Id</th>
                       <th>Name</th>
                       <th>Gender</th>
                       <th>Biography</th>
@@ -30,10 +31,16 @@
                    $sql = 'SELECT * FROM authors ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
+                            echo '<td>'. $row['id'] . '</td>';
                             echo '<td>'. $row['name'] . '</td>';
                             echo '<td>'. $row['gender'] . '</td>';
-                            echo '<td>'. $row['biography'] . '</td>';
-                            echo '<td><a class="btn" href="read.php?id='.$row['id'].'">Read</a></td>';
+                            echo '<td>'. $row['biography'] . '</td>';                           
+                            echo '<td width="250"><a class="btn btn-primary" href="read.php?id='.$row['id'].'">Read</a>';
+                            //echo ' ';
+                            echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Edit</a>';
+                            //echo ' ';
+                            echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Delete</a>';
+                            echo '</td>';
                             echo '</tr>';
                    }
                    Database::disconnect();
@@ -42,6 +49,8 @@
             </table>
         </div>
     </div> <!-- /container -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>     
+
   </body>
 </html>

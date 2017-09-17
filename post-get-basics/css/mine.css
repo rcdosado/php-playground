@@ -3,6 +3,10 @@ html {
     font-size: 14px;
 }
 
+input[type="text"] {
+    width: 200px;
+}
+
 h5 {
     font-size: 1.28571429em;
     font-weight: 700;
