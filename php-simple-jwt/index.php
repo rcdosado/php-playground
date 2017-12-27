@@ -1,3 +1,20 @@
+<?php
+
+require 'auth.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+{
+	$userid = authenticate();
+
+	if ($userid != false) {
+		echo "user id is ".$userid;
+	    echo "logged in!";	 
+	}
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,20 +37,20 @@
 
 <div class="row">
 	<div class="col-sm-2">
-<form>
-  <div class="form-group">
-    <label for="usr">Email address:</label>
-    <input type="text" class="form-control" id="usr">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>	
+		<form action="index.php" method="post">
+		  <div class="form-group">
+		    <label for="usr">Username:</label>
+		    <input name="usr" type="text"  class="form-control" id="usr">
+		  </div>
+		  <div class="form-group">
+		    <label for="pw">Password:</label>
+		    <input name="pw" type="password"  class="form-control" id="pw">
+		  </div>
+		  <div class="checkbox">
+		    <label><input type="checkbox"> Remember me</label>
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>	
 	</div>
 	<div class="col-sm-8"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus cumque labore dolores laborum excepturi quo fuga id reiciendis, error rem quidem soluta quis aliquid saepe temporibus, molestiae molestias, officia quae?</div>
 	<div>Nihil sunt minima amet ipsam voluptatibus distinctio alias nam quam provident aut. Placeat provident iure repudiandae, at obcaecati deleniti repellendus tempore ducimus voluptatem, qui nam officia atque quod ipsa iste.</div></div>
@@ -48,16 +65,3 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-<?php
-
-require 'auth.php';
-
-die();
-
-$userid = authenticate();
-
-if ($userid != false) {
-    echo "logged in!";
-}
-
-?>

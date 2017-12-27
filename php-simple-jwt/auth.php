@@ -8,11 +8,12 @@ function authenticate () {
     $db_usr_id = 187;
     $secret_key = 'some_test_key';
     $valid_for = '3600';
- 
-    
+
     if ($_POST['usr'] && $_POST['pw']) {
         $usr = $_POST['usr'];
         $pw = $_POST['pw'];
+
+
        
         if ($usr == $db_usr && $pw == hash('sha256', $db_usr_pw)) {
             $token = array();
