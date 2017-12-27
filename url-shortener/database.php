@@ -34,4 +34,3 @@ class Database
         self::$cont = null;
     }
 }
-?>
